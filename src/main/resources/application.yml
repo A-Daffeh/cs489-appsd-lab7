@@ -2,13 +2,15 @@ spring:
   application:
     name: Lab7
   datasource:
-    url: jdbc:mysql://localhost:3306/cs489-lab-6
-    username: root
-    password: '@Adoustar4'
+    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/${MYSQL_DB}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     properties:
-      dialect: org.hibernate.dialect.MySQLDialect
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
     hibernate:
-      ddl-auto: create-drop
-    database: mysql
-    show-sql: true
+      ddl-auto: update
+server:
+  port: 8080
